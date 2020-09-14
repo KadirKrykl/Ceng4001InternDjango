@@ -1,0 +1,61 @@
+{% extends 'base_layout.html' %}
+{% load i18n %}
+
+{% block title %} 
+{% trans 'News' %}
+{% endblock %}
+
+
+{% block addCss %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="title-area d-flex flex-row align-items-center">
+        <h2>{% trans 'News' %}</h2>
+        <nav aria-label="breadcrumb" class="ml-auto">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans 'News' %}</li>
+            </ol>
+        </nav>
+    </div>
+    
+
+    {% for post in posts %}
+
+        <div class="list_title">
+            <a href="{% url 'news:detail' post.slug %}"><h4>{{ post.title }}</h4></a>
+        </div>
+        <div class="list_prop d-flex flex-row">
+            <div class="d-flex flex-column">
+                <span>{% trans 'Category' %}: <b>{{ post.researchGroup }}</b></span>
+            </div>
+            <div class="d-flex flex-column">
+                <span>{% trans 'Author' %}: <b>{{ post.author.get_full_name }}</b></span>
+            </div>
+            <div class="d-flex flex-column">
+                <span>{% trans 'Date' %}: <b>{{ post.createDate }}</b></span>
+            </div>
+        </div>
+        <p>{{ post.excerpt }}</p>
+
+    {% endfor %}
+
+{% endblock %}
+
+
+{% block sidebar %}
+    <h4>{% trans 'Research Groups' %}</h4>
+    <ul class="nav flex-column">
+        {% for group in groups %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'news:news_group' group.slug %}"><i class="fas fa-angle-right"></i> {{ group.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+{% block addJS %}
+{% endblock %}

@@ -1,0 +1,25 @@
+#---------------------------------
+#+++++++++++++RESEARCH+++++++++++++
+#---------------------------------
+
+def research_list(requests):
+    research_list = Research.objects.filter(draft=False)
+    rsg_list = ResearchGroups.objects.all()
+    return render(requests,'research/list.html',context={'posts':research_list,'groups':rsg_list})
+
+def research_list_filter_group(requests,slug):
+    group = get_object_or_404(ResearchGroups,slug=slug)
+    research_list = Research.objects.filter(researchGroup=group,draft=False)
+    rsg_list = ResearchGroups.objects.all()
+    return render(requests,'research/list.html',context={'posts':research_list,'groups':rsg_list})
+
+def research_details(requests,slug):
+    research = get_object_or_404(Research,slug=slug)
+    return render(requests,'research/detail.html',context={'post':research})
+
+
+research_patterns = ([
+    path('', research_list, name='research'),
+    path('<str:slug>', research_list_filter_group, name='research_group'),
+    path('detail/<str:slug>',research_details, name='detail'),
+], 'research')

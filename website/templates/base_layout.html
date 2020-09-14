@@ -1,0 +1,118 @@
+{% load i18n %}
+{% load static %}
+{% load auth_extras %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> MSKU DSRG | {% block title %} {% endblock %} </title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'libs/bootstrap5/css/bootstrap.css' %}">
+        
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        
+        <!-- OwlCarousel -->
+        <link rel="stylesheet" href="{% static 'libs/owl-carousel/assets/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'libs/owl-carousel/assets/owl.theme.default.min.css' %}">
+
+        <!-- Custom Css -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+        {% block addCss %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand  mb-auto  mt-auto mr-auto ml-auto" href="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt="" loading="lazy"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse mb-auto  mt-auto" id="navbarSupportedContent">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'news:news' %}">{% trans 'News' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profiles:profiles' %}">{% trans 'People' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'project:project' %}">{% trans 'Project' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'research:research' %}">{% trans 'Researchs' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'publication:publication' %}">{% trans 'Publications' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{% trans 'Thesis' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'resource:resource' %}">{% trans 'Resources' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{% trans 'Contact' %}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright d-none d-lg-block d-xl-block">
+                    {% trans 'Copyright © Data Science Research Group 2020' %} | <a href="https://www.mu.edu.tr/tr" target="_blank" rel="noopener noreferrer">MSKU</a>  ( {% trans 'Turkey' %} )
+                </div>
+              </nav>
+        </header>
+        <div class="d-block d-lg-none d-xl-none sidebar sidebar-mobile">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSidebar" aria-controls="navbarSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <h5>{% trans 'Research Groups' %} <i class="fas fa-angle-down"></i></h5>
+            </button>
+            <div class="collapse navbar-collapse mb-auto" id="navbarSidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#"><i class="fas fa-angle-right"></i> Information Retrieval</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#"><i class="fas fa-angle-right"></i> Natural Language Process</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <section id="content">
+            <div class="container-fluid">
+                <div class="row">
+                    
+                    <div class="col-lg-12 content-center">
+                        
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="col-lg-3 d-none d-lg-block d-xl-block sidebar">
+            {% block sidebar %}
+            {% endblock %}
+        </div>
+
+
+    {% block addJS %}
+    {% endblock %}
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <!-- Jquery Additional -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- Bootstrap Js -->
+    <script src="{% static 'libs/bootstrap5/js/bootstrap.js' %}"></script>
+    <!-- Owl Js -->
+    <script src="{% static 'libs/owl-carousel/owl.carousel.min.js' %}"></script>
+    <!-- Custom Js -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    </body>
+</html>

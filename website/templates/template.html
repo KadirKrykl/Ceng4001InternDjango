@@ -1,0 +1,32 @@
+{% extends 'base_layout.html' %}
+{% load i18n %}
+
+{% block title %} 
+{% trans 'News' %}
+{% endblock %}
+
+
+{% block addCss %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="title-area d-flex flex-row align-items-center">
+        <h2>{% trans 'News' %}</h2>
+        <nav aria-label="breadcrumb" class="ml-auto">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans 'News' %}</li>
+            </ol>
+        </nav>
+    </div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+{% endblock %}
+
+
+{% block addJS %}
+{% endblock %}

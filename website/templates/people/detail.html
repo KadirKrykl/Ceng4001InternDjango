@@ -1,0 +1,66 @@
+{% extends 'base_layout.html' %}
+{% load i18n %}
+
+{% block title %} 
+    {{ post.title }}
+{% endblock %}
+
+
+{% block addCss %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="title-area d-flex flex-row align-items-center">
+        <h2>{{ post.user.get_full_name }}</h2>
+        <nav aria-label="breadcrumb" class="ml-auto">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'profiles:profiles' %}"> {% trans 'People' %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans 'Detail' %}</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="single-content">
+        {{ post.information|safe }}
+    </div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+    <div class="side_prop d-flex flex-column">
+        <img src="{{ post.profile_photo.url }}" class="img-fluid" alt="" srcset="">
+        <div class="d-flex flex-column">
+            <span><b>{% trans 'Role' %}</b></span>
+            <span>{{ post.user.groups.all.0 }}</span>
+        </div>
+        <div class="d-flex flex-column">
+            <span><b>{% trans 'Mail' %}</b></span>
+            <a href="mailto:{{ post.user.email }}" class="mt-auto"><span>{{ post.user.email }}</span></a>
+        </div>
+        <div class="d-flex flex-column">
+            <span><b>{% trans 'Research Groups' %}</b></span>
+            {% for rg in post.researchGroup.all %}
+                <span>{{ rg.title }}</span>
+            {% endfor %}
+        </div>
+        {% if post.linkedin %} 
+        <div class="d-flex flex-column">
+            <span><b>{% trans 'Linkedin' %}</b></span>
+            <span>{{ post.linkedin }}</span>
+        </div>
+        {% endif %}
+        {% if post.twitter %} 
+        <div class="d-flex flex-column">
+            <span><b>{% trans 'Twitter' %}</b></span>
+            <span>{{ post.twitter }}</span>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+{% block addJS %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base_layout.html' %}
+{% load i18n %}
+{% load auth_extras %}
+{% block title %} 
+{% trans 'Resource' %}
+{% endblock %}
+
+
+{% block addCss %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="title-area d-flex flex-row align-items-center">
+        <h2>{% trans 'Resource' %}</h2>
+        <nav aria-label="breadcrumb" class="ml-auto">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans 'Resource' %}</li>
+            </ol>
+        </nav>
+    </div>
+    
+    <section id="only_list">
+        {% for post in posts %}
+            <div class="list-item">
+                <div class="list_title">
+                    <h6>{{ post.title }}</h6>
+                </div>
+                {{ post.information|safe }}
+        
+                {% if post.link %}
+                {{ post.link|safe }}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+    
+{% endblock %}
+
+
+{% block sidebar %}
+
+{% endblock %}
+
+
+{% block addJS %}
+{% endblock %}

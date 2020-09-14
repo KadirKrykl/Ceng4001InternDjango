@@ -1,0 +1,51 @@
+{% extends 'base_layout.html' %}
+{% load i18n %}
+
+{% block title %} 
+    {{ post.title }}
+{% endblock %}
+
+
+{% block addCss %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="title-area d-flex flex-row align-items-center">
+        <h2>{{ post.title }}</h2>
+        <nav aria-label="breadcrumb" class="ml-auto">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'news:news' %}"> {% trans 'News' %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans 'Detail' %}</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="single-content">
+        {{ post.content|safe }}
+    </div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+    <div class="side_prop d-flex flex-column">
+        <div class="d-flex flex-column">
+            <span>{% trans 'Category' %}</span>
+            <a href=""><span><b>{{ post.researchGroup }}</b></span></a>
+        </div>
+        <div class="d-flex flex-column">
+            <span>{% trans 'Author' %}</span>
+            <a href=""><span><b>{{ post.author.get_full_name }}</b></span></a>
+        </div>
+        <div class="d-flex flex-column">
+            <span>{% trans 'Date' %}</span>
+            <span><b>{{ post.createDate }}</b></span>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block addJS %}
+{% endblock %}

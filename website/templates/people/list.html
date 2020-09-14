@@ -1,0 +1,66 @@
+{% extends 'base_layout.html' %}
+{% load i18n %}
+{% load auth_extras %}
+{% block title %} 
+{% trans 'People' %}
+{% endblock %}
+
+
+{% block addCss %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="title-area d-flex flex-row align-items-center">
+        <h2>{% trans 'People' %}</h2>
+        <nav aria-label="breadcrumb" class="ml-auto">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans 'People' %}</li>
+            </ol>
+        </nav>
+    </div>
+    
+
+    {% for title in titles %}
+        <section id='{{ title.name|slugify }}'>
+            <h4>{{ title.name }}</h4>
+            <div class="people_list">
+                {% for post in posts %}
+                    {% if post.user|has_group:title.name %} 
+                        <div class="col-md-6 d-flex flex-row">
+                            <img src="{{ post.profile_photo.url }}" alt="Profile Photo">
+                            <div class="info d-flex flex-column">
+                                <a href="{% url 'profiles:detail' post.slug %}"><h5>{{ post.user.get_full_name }}</h5></a>
+                                <span>
+                                    {% for rg in post.researchGroup.all %}
+                                        {{ rg.title }} |
+                                    {% endfor %}
+                                </span>
+                                <a href="mailto:{{ post.user.email }}" class="mt-auto">{{ post.user.email }}</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+    {% endfor %}
+
+{% endblock %}
+
+
+{% block sidebar %}
+    <h4>{% trans 'Titles' %}</h4>
+    <ul class="nav flex-column">
+        {% for title in titles %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#{{ title.name|slugify }}"><i class="fas fa-angle-right"></i> {{ title.name }} </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+{% block addJS %}
+{% endblock %}
