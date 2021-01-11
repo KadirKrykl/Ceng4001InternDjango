@@ -1,11 +1,11 @@
 :root {
-    --main-bg-color: #383838;
-    --second-bg-color: #bb9648;
+    --main-bg-color: #2a2b2d;
+    --second-bg-color: #d1542d;
     --third-bg-color: #efefef;
     
-    --title-font-color:#383838;
+    --title-font-color:#2a2b2d;
     --text-font-color:#717171;
-    --third-font-color:#bb9648;
+    --third-font-color:#d1542d;
     --white:#fcfcfc;
 
     --title-font: 'Poppins', sans-serif;
@@ -86,6 +86,10 @@ h1,h2,h3,h4,h5,h6{
   padding-left: 1.5rem;
 }
 
+.navbar a img{
+  height: 100px;
+}
+
 @media (min-width: 992px){
   .navbar{
     width: fit-content;
@@ -97,6 +101,9 @@ h1,h2,h3,h4,h5,h6{
   }
   .container-fluid{
     padding-left: 300px;
+  }
+  .navbar a img{
+    width: 100%;
   }
 }
 
