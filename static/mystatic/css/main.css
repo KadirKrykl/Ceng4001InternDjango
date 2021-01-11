@@ -1,0 +1,261 @@
+:root {
+    --main-bg-color: #383838;
+    --second-bg-color: #bb9648;
+    --third-bg-color: #efefef;
+    
+    --title-font-color:#383838;
+    --text-font-color:#717171;
+    --third-font-color:#bb9648;
+    --white:#fcfcfc;
+
+    --title-font: 'Poppins', sans-serif;
+    --text-font: 'Lato', sans-serif;
+  }
+
+body,html{
+  margin: 0;
+  padding: 0;
+  font-family: var(--text-font);
+  color: var(--text-font-color);
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--title-font);
+  color: var(--title-font-color);
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.copyright{
+  text-align: center;
+  color: var(--white);
+  font-size: 14px;
+}
+.copyright a{
+  color: var(--white) !important;
+  text-decoration: none;
+  transition: all ease .4s;
+}
+.copyright a:hover{
+  color: var(--third-font-color)!important;
+  text-decoration: none;
+}
+
+@media (min-width: 992px){
+  .copyright{
+    padding: 5px 1rem;
+  }
+}
+
+/* ++++++++++++++
+-------NAV-------
++++++++++++++++ */
+
+.navbar{
+  background-color: var(--main-bg-color);
+}
+
+.navbar-brand{
+  margin-bottom: 2rem;
+  margin-right: 0;
+}
+
+#navbarSupportedContent ul{
+  width: 100%;
+}
+
+#navbarSupportedContent ul li{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 1px solid #6e6e6e;
+  transition: .3s all ease-in;
+}
+
+#navbarSupportedContent ul .nav-link{
+  color: var(--third-font-color);
+  font-family: var(--title-font);
+  padding: 10px 5px;
+}
+
+#navbarSupportedContent ul li:hover{
+  background-color: #555555;
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 992px){
+  .navbar{
+    width: fit-content;
+    height: 100%;
+    flex-direction: column;
+    width: 250px;
+    text-align: left;
+    position: fixed;
+  }
+  .container-fluid{
+    padding-left: 300px;
+  }
+}
+
+/* ++++++++++++++
+-CONTENT GENERAL-
++++++++++++++++ */
+
+.container-fluid{
+  padding-top: 30px;
+}
+
+@media (min-width: 992px){
+  .container-fluid{
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+}
+
+.title-area{
+  margin-bottom: 30px;
+}
+
+.title-area h2{
+  font-family: var(--title-font);
+  color: var(--title-font-color);
+  margin-bottom: 0;
+  width: fit-content;
+}
+
+.title-area .breadcrumb{
+  background-color: transparent;
+  font-size: 14px;
+  margin:0;
+}
+
+.breadcrumb .breadcrumb-item a{
+  color: var(--title-font-color);
+  text-decoration: none;
+  transition: all ease .4s;
+}
+.breadcrumb .breadcrumb-item a:hover{
+  color: var(--third-font-color);
+  text-decoration: none;
+}
+
+.content-center p{
+  padding: 15px;
+  font-family: var(--text-font);
+}
+
+/* ++++++++++++++
+-CONTENT LIST-
++++++++++++++++ */
+
+.content-center .list_title a{
+  text-decoration: none;
+}
+.content-center .list_title a:hover{
+  text-decoration: none;
+}
+
+.content-center .list_prop{
+  text-align: left;
+  font-size: 13px;
+}
+
+.content-center .list_prop div{
+  padding: 2px 10px 2px 0;
+}
+
+/* ++++++++++++++
+-CONTENT ONLY LIST-
++++++++++++++++ */
+#only_list h3{
+  text-decoration: underline;
+  width: fit-content;
+}
+#only_list h6{
+  margin-bottom: 2px;
+}
+#only_list p{
+  font-size: 14px;
+  padding: 1px;
+  margin-bottom: 2px;
+}
+#only_list .list-item{
+  margin-bottom: 15px;
+}
+
+/* ++++++++++++++
+-CONTENT PEOPLE LIST-
++++++++++++++++ */
+
+.people_list .col-md-6{
+  margin: 1rem 0;
+  padding: 8px;
+}
+
+.people_list img{
+  border-radius: 50%;
+  max-width: 85px;
+  border: 2px solid var(--third-bg-color);
+}
+
+.people_list .info{
+  padding: 0 0 0 10px;
+}
+
+.people_list .info h5{
+  margin: 0;
+}
+.people_list .info span{
+  font-size: 12px;
+}
+
+.people_list a{
+  text-decoration: none;
+  color: var(--text-font-color);
+  transition: all .4s ease;
+}
+.people_list a:hover{
+  color: var(--title-font-color)
+}
+
+/* ++++++++++++++
+-SIDEBAR RIGHT-
++++++++++++++++ */
+@media (min-width: 992px){
+  .sidebar{
+    background-color: var(--third-bg-color);
+    width: 250px;
+    position: fixed;
+    left: auto;
+    right: 0;
+    height: 100%;
+    top: 0;
+  }
+  .sidebar h4{
+    padding: 1rem 1rem 0 1rem;
+  }
+}
+
+.sidebar a{
+  color: var(--text-font-color);
+  transition: all ease .4s;
+}
+.sidebar a:hover{
+  color: #2b2b2b;
+}
+
+.sidebar .side_prop{
+  padding: 1rem 1rem;
+}
+.sidebar .side_prop>div{
+  padding: 5px 0;
+}
+.sidebar .side_prop a{
+  text-decoration: none;
+}
+.sidebar .side_prop a:hover{
+  text-decoration: none;
+}
