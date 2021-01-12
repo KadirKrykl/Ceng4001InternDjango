@@ -27,7 +27,7 @@ SECRET_KEY = ')9r@otey5!i-bxp(b3e6mda&#hy-!t^(nyk^tb%hfm6!i0&z(0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','dslab.ceng.mu.edu.tr']
 
 
 # Application definition
